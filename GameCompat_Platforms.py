@@ -3,8 +3,8 @@ import proton_db as proton
 
 protonDB =  proton.protonDB()
 
-USER_API_KEY = ''
-USER_STEAM_ID = ''
+USER_API_KEY = '' # ask steam for an API (it's free)
+USER_STEAM_ID = '' # you can find your steam id on the Steam app by clicking "detail account" on the top right and it will be just under your username account
 # Get the complete list of Steam apps
 api = 'https://api.steampowered.com/ISteamApps/GetAppList/v2/'
 res = requests.get(url=api)
