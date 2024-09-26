@@ -8,7 +8,7 @@ This python file will use an Steam API and an ID steam account, that you'll need
 ## WebScrapingProtonDB.py
 This program will:
 - Check the id of all the games you own in your steam library
-- Check if the id is in the .csv (random game sorted asc)
+- Check if the id is in the .csv
   - If we found an id of a game inside the .csv, we skip the game
 - Loop over all the game ID that is not inside the .csv (if .csv does not exist then create the .csv and do not skip the loop of check)
   - Open a single window (Firefox) and goes to the link https://www.protondb.com/app/{app_id}  
