@@ -30,30 +30,18 @@ for result in user_game_data['response']['games']:
     games_owned_id.append(appid)
     games_owned_names.append(get_name(appid))  # Check if appid exists before accessing
 
-print(games_owned_names)
+# Iterate through the names and IDs simultaneously using zip
+for i, (game_name, appid) in enumerate(zip(games_owned_names, games_owned_id)):
+    if 'Unknown AppID' in game_name:
+        print("removing game id:", appid)
+        UnknownAppId_list.append(game_name)
+        # Remove both the game name and ID
+        games_owned_names[i] = None  # Mark for removal
+        games_owned_id[i] = None     # Mark for removal
 
-# Ask if the user wants to flush Unknown App IDs
-clearUnknownAppId = input("Do you want to flush all of the *Unknown AppId* from the list ? (Y/n)")
-if clearUnknownAppId.lower() == "y":
-    UnknownAppIdStock = input("Do you want to have the list of all the *Unknown AppId* apart from the game list ? (Y/n)")
-    
-    # Iterate through the names and IDs simultaneously using zip
-    for i, (game_name, appid) in enumerate(zip(games_owned_names, games_owned_id)):
-        if 'Unknown AppID' in game_name:
-            print("removing game id:", appid)
-            
-            # Store Unknown App IDs if requested
-            if UnknownAppIdStock.lower() == "y":
-                UnknownAppId_list.append(game_name)
-                print('UnknownAppId_list:', game_name)
-            
-            # Remove both the game name and ID
-            games_owned_names[i] = None  # Mark for removal
-            games_owned_id[i] = None     # Mark for removal
-            
-    # Remove marked items from both lists
-    games_owned_names = [game for game in games_owned_names if game is not None]
-    games_owned_id = [appid for appid in games_owned_id if appid is not None]
+# Remove marked items from both lists
+games_owned_names = [game for game in games_owned_names if game is not None]
+games_owned_id = [appid for appid in games_owned_id if appid is not None]
 
 print('UnknownAppId_list:', UnknownAppId_list)
 print('Cleaned Game List:', games_owned_names)
