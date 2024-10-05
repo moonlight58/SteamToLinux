@@ -15,3 +15,5 @@ This program will:
   - Wait and scrap the specific div that holds the rating level in the page of the game id and the full name of the game
 - Write inside the csv the following information [date_of_check, game_id, game_name, level_rating]
 - And finally close the Firefow window manager.
+
+PS: I, recently, discovered that ProtonDB already has this functionality.
